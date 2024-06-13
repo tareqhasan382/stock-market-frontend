@@ -1,30 +1,38 @@
-# React + TypeScript + Vite
+# Telecommunication Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This project involves building a web application using ReactJS for the frontend and Python for the backend. The application visualizes data from a given JSON file in a table format, allows CRUD operations on the data, and includes graphical representations of the data. The goal is to demonstrate the ability to learn, adapt, and build efficient and clean code.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
 
-## Expanding the ESLint configuration
+- **Frontend:** ReactJS , TypeScripts, Tailwind CSS , Redux , yup valudation
+- **Backend:** Python (Django)
+- **Database:** PostgreSQL
+- **Visualization:** Chart.js
+- **Hosting:** Vercel
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Steps Completed
 
-- Configure the top-level `parserOptions` property like this:
+1. **Basic Web App with JSON Data:**
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- Built a basic web application that loads data from a JSON file and displays it in a table on the homepage.
+- **Technologies Used:** ReactJS, TypeScripts, Redux, yup validation, Tailwind CSS
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. **CRUD Operations with SQL Server:**
+
+- Loaded the data into an SQL server and made the table rows editable. Implemented CRUD operations to manage the data.
+- **Technologies Used:** PostgreSQL, Redux (for ReactJS HTTP requests)
+
+## Challenges Faced
+
+1. **Learning Curve:** As someone with a limited background in web development, understanding and integrating ReactJS and Python posed a challenge initially.
+2. **Data Management:** Efficiently managing and transitioning data from JSON to SQL required a good understanding of database operations and state management in React.
+3. **Chart Integration:** Integrating and customizing charts to visualize the data in an informative manner was challenging but rewarding.
+
+## Learning Outcomes
+
+- **ReactJS:** Gained a deep understanding of ReactJS components, hooks, and state management.
+- **Python Backend:** Improved skills in setting up and handling a Python backend with Django.
+- **CRUD Operations:** Learned how to implement CRUD operations in a full-stack application.
+- **Data Visualization:** Enhanced ability to use Chart.js libraries for data visualization in ReactJS.
