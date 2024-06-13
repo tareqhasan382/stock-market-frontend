@@ -3,7 +3,7 @@ import { ArrowLeftRight, Database, DollarSign } from "lucide-react";
 const HeaderData = () => {
   return (
     <div className=" w-full h-44 bg-white shadow-lg p-1 ">
-      <div className=" w-full h-full flex flex-wrap items-center text-center justify-center gap-5 ">
+      <div className=" w-full h-full flex flex-wrap items-center text-center justify-center gap-3 ">
         <div className=" flex items-center justify-center gap-2 ">
           <div className=" lg:size-8 size-6  rounded-full outline outline-gray-400 flex items-center justify-center ">
             <ArrowLeftRight size={20} className=" font-bold text-gray-400 " />

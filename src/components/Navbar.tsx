@@ -2,13 +2,8 @@ import { useState } from "react";
 import { CiMenuBurger } from "react-icons/ci";
 import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
-// import { useDispatch, useSelector } from "react-redux";
-// import { RootState } from "../Redux/store";
-// import { userLoggedOut } from "../Redux/auth/authSlice";
 
 const Navbar: React.FC = () => {
-  // const dispatch = useDispatch();
-  // const session = useSelector((state: RootState) => state.auth);
   const [showNav, setShowNav] = useState(false);
 
   return (
@@ -32,42 +27,27 @@ const Navbar: React.FC = () => {
                   to="/"
                   className={` hover:bg-[#eef2f6f0] hover:text-blue-500 rounded-full py-2 px-3 inline-block w-full`}
                 >
-                  Home
+                  Portfolio
                 </Link>
               </li>
-              <li>
-                {/* <Link
-                  to={session?.user ? "/orders" : "/login"}
-                  className={` hover:bg-[#eef2f6f0] hover:text-blue-500 rounded-full py-2 px-3 inline-block w-full`}
-                >
-                  Orders
-                </Link> */}
+              <li
+                className={` hover:bg-[#eef2f6f0] hover:text-blue-500 rounded-full py-2 px-3 inline-block w-full cursor-pointer `}
+              >
+                Share
               </li>
               <li>
                 <Link
-                  to="/hotels"
+                  to="/"
                   className={` hover:bg-[#eef2f6f0] hover:text-blue-500 rounded-full py-2 px-3 inline-block w-full`}
                 >
-                  Hotels
+                  News
                 </Link>
               </li>
-
-              {/* {session.user ? (
-                <li onClick={() => dispatch(userLoggedOut())}>
-                  <span className=" cursor-pointer hover:bg-[#eef2f6f0] hover:text-blue-500 rounded-full py-2 px-3 inline-block w-full">
-                    SignOut
-                  </span>
-                </li>
-              ) : (
-                <li>
-                  <Link
-                    to="/login"
-                    className=" cursor-pointer hover:bg-[#eef2f6f0] hover:text-blue-500 rounded-full py-2 px-3 inline-block w-full"
-                  >
-                    Login
-                  </Link>
-                </li>
-              )} */}
+              <li
+                className={` hover:bg-[#eef2f6f0] hover:text-blue-500 rounded-full py-2 px-3 inline-block w-full cursor-pointer `}
+              >
+                Signin
+              </li>
             </ul>
           </nav>
 
@@ -94,38 +74,31 @@ const Navbar: React.FC = () => {
         style={{ maxWidth: "100vw", overflowX: "hidden" }}
       >
         <ul className=" flex flex-col text-[15px] py-2 ">
+          <li className=" mx-5 hover:bg-white hover:text-black hover:duration-75  rounded-full py-1 cursor-pointer ">
+            <span className=" px-5 ">About</span>
+          </li>
           <Link to="/">
             <li className=" mx-5 hover:bg-white hover:text-black hover:duration-75  rounded-full py-1 cursor-pointer ">
-              <span className=" px-5 ">Home</span>
+              <span className=" px-5 ">Protfolio</span>
             </li>
           </Link>
 
-          <Link to="/orders">
+          <Link to="/">
             <li className=" mx-5 hover:bg-white hover:text-black hover:duration-75 rounded-full py-1 cursor-pointer ">
-              <span className=" px-5 ">Orders</span>
+              <span className=" px-5 ">Share</span>
             </li>
           </Link>
-
-          <Link to="/hotels">
+          <Link to="/">
             <li className=" mx-5 hover:bg-white hover:text-black hover:duration-75 rounded-full py-1 cursor-pointer ">
-              <span className=" px-5 ">Hotels</span>
+              <span className=" px-5 ">News</span>
             </li>
           </Link>
 
-          {/* {session ? (
-            <button
-              onClick={() => dispatch(userLoggedOut())}
-              className=" cursor-pointer my-3 mx-5 w-[120px] text-body-semibold text-white bg-black hover:duration-75 rounded-full py-2 "
-            >
-              <span className=" px-5 ">Sign Out</span>
-            </button>
-          ) : (
-            <button className=" my-3 mx-5 w-[120px] text-body-semibold text-white bg-black hover:duration-75 rounded-full py-2 cursor-pointer">
-              <Link to="/login">
-                <span className=" px-5 ">Sign In</span>
-              </Link>
-            </button>
-          )} */}
+          <Link to="/">
+            <li className=" mx-5 hover:bg-white hover:text-black hover:duration-75 rounded-full py-1 cursor-pointer ">
+              <span className=" px-5 ">Signin</span>
+            </li>
+          </Link>
         </ul>
       </div>
     </div>

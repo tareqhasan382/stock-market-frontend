@@ -1,53 +1,32 @@
-import axios from "axios";
-import { Settings } from "lucide-react";
-import { useEffect, useState } from "react";
+import { FilePenLine, Settings, Trash2 } from "lucide-react";
 import { FaCaretDown } from "react-icons/fa";
+import LoaderModal from "./LoaderModal";
+import { Link } from "react-router-dom";
+import {
+  useDeleteStockMutation,
+  useStocksQuery,
+} from "../redux/stock/stockApi";
+import { toast } from "react-toastify";
 
-interface Product {
-  id: string;
-  trade_code: string;
-  open: string;
-  close: string;
-  low: string;
-  high: string;
-  date: string;
-  volume: number;
-}
 const AllData: React.FC = () => {
-  const [products, setData] = useState<Product[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string>("");
+  const { data, isLoading, error } = useStocksQuery();
+  const [deleteStock, { isLoading: deletedLoading }] = useDeleteStockMutation();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "https://django-backend-project.vercel.app/stock"
-        );
-
-        setData(response.data);
-        setLoading(false);
-      } catch (error) {
-        setError("An error occurred while fetching the data.");
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-
-    // Cleanup function
-    return () => {};
-  }, []);
-
-  if (loading) {
-    return <div>Loading...</div>;
+  if (isLoading) {
+    return (
+      <div>
+        <LoaderModal />
+      </div>
+    );
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return <div>data fetch Faield</div>;
   }
-  //   console.log("products:", products);
-
+  const handleDeleteStock = async (id: string) => {
+    await deleteStock(id);
+    toast.success("Data Deleted Successfully!");
+  };
   return (
     <div>
       <div className=" flex flex-col gap-5 py-5 ">
@@ -106,19 +85,18 @@ const AllData: React.FC = () => {
                   <th className="px-4 py-2 text-left uppercase">Low</th>
                   <th className="px-4 py-2 text-left uppercase">Close</th>
                   <th className="px-4 py-2 text-left uppercase">Volume</th>
-                  <th className="px-4 py-2 text-left uppercase absolute">
-                    date
-                  </th>
+                  <th className="px-4 py-2 text-left uppercase">date</th>
+                  <th className="px-4 py-2 text-left uppercase">action</th>
                 </tr>
               </thead>
               <tbody>
-                {loading && (
+                {isLoading && (
                   <tr className="flex items-center justify-center h-full ">
                     <td className=" animate-spin rounded-full border-t-4 border-blue-500 border-solid h-12 w-12"></td>
                   </tr>
                 )}
-                {products?.length > 0 ? (
-                  products?.map((item, index) => (
+                {data && data?.length > 0 ? (
+                  data?.map((item, index) => (
                     <tr key={index} className=" hover:bg-gray-300 ">
                       <td className="border px-4 py-2" data-label="Name">
                         {item?.trade_code}
@@ -143,6 +121,26 @@ const AllData: React.FC = () => {
                         data-label="Name"
                       >
                         {item?.date}
+                      </td>
+                      <td
+                        className="border px-4 py-2 whitespace-nowrap flex flex-row gap-4"
+                        data-label="Name"
+                      >
+                        <button
+                          disabled={deletedLoading}
+                          onClick={() => handleDeleteStock(item?.id)}
+                          // deletedLoading
+                          className={`${
+                            deletedLoading && " cursor-not-allowed "
+                          } cursor-pointer hover:text-red-500`}
+                        >
+                          <Trash2 />
+                        </button>
+                        <Link to={`/updateStock/${item?.id}`}>
+                          <button className="cursor-pointer hover:text-green-500">
+                            <FilePenLine />
+                          </button>
+                        </Link>
                       </td>
                     </tr>
                   ))

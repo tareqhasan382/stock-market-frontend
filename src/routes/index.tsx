@@ -2,13 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Layout from "./Layout";
 import App from "../App";
 import NotFound from "../components/NotFound";
-// import Login from "../components/Login";
-// import Register from "../components/Register";
-// import NotFound from "../components/NotFound";
-// import Hotels from "../components/Hotels";
-// import Rooms from "../components/Rooms";
-
-// import MyOrders from "../components/MyOrders";
+import AddData from "../components/AddData";
+import UpdateStock from "../components/UpdateStock";
 
 const routes = createBrowserRouter([
   {
@@ -20,28 +15,14 @@ const routes = createBrowserRouter([
         element: <App />,
       },
 
-      //   {
-      //     path: "/hotels",
-      //     element: <Hotels />,
-      //   },
-      //   {
-      //     path: "/rooms/:id",
-      //     element: <Rooms />,
-      //   },
-
-      //   {
-      //     path: "/orders",
-      //     element: <MyOrders />,
-      //   },
-
-      //   {
-      //     path: "/login",
-      //     element: <Login />,
-      //   },
-      //   {
-      //     path: "/register",
-      //     element: <Register />,
-      //   },
+      {
+        path: "/add",
+        element: <AddData />,
+      },
+      {
+        path: "/updateStock/:id",
+        element: <UpdateStock />,
+      },
 
       {
         path: "*",
