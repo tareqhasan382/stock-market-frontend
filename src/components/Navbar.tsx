@@ -24,10 +24,10 @@ const Navbar: React.FC = () => {
             <ul className="flex items-center space-x-3  font-semibold text-[15px]">
               <li>
                 <Link
-                  to="/"
+                  to="/add"
                   className={` hover:bg-[#eef2f6f0] hover:text-blue-500 rounded-full py-2 px-3 inline-block w-full`}
                 >
-                  Portfolio
+                  Add Stock
                 </Link>
               </li>
               <li
@@ -75,7 +75,9 @@ const Navbar: React.FC = () => {
       >
         <ul className=" flex flex-col text-[15px] py-2 ">
           <li className=" mx-5 hover:bg-white hover:text-black hover:duration-75  rounded-full py-1 cursor-pointer ">
-            <span className=" px-5 ">About</span>
+            <Link to="/add">
+              <span className=" px-5 ">Add Stock</span>
+            </Link>
           </li>
           <Link to="/">
             <li className=" mx-5 hover:bg-white hover:text-black hover:duration-75  rounded-full py-1 cursor-pointer ">
